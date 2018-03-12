@@ -6,25 +6,18 @@ import {HttpModule} from '@angular/http';
 import {MatInputModule} from '@angular/material/input';
 import { AppComponent }  from './app.component';
 import { RestApiService } from './rest-api.service';
-// import { LoginComponent } from './login/login.component';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
-
 import {MatSelectModule} from '@angular/material/select';
-
 import {MatDialogModule} from '@angular/material/dialog';
-
-
 import {MatMenuModule} from '@angular/material/menu';
-
 import { RouterModule }   from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { GuardService } from './guard-service.service';
-import { FormComponent } from './form/form.component';
 import { CookieService } from './cookie.service';
-import { DialogOverviewExample, DialogOverviewExampleDialog } from './dialog/dialog.component';
-
-@NgModule({
+import { MoneyManagerComponent } from './money-manager/money-manager.component';
+@NgModule
+({
   imports: [
     BrowserModule,
     FormsModule, 
@@ -32,8 +25,6 @@ import { DialogOverviewExample, DialogOverviewExampleDialog } from './dialog/dia
     MatSelectModule,
     MatDialogModule,
     MatMenuModule,
-
-
     RouterModule.forRoot([
       {
         path: 'login',
@@ -46,38 +37,23 @@ import { DialogOverviewExample, DialogOverviewExampleDialog } from './dialog/dia
         pathMatch: 'full'
       },
       {
-        path: 'form',
-        component:FormComponent,
-        canActivate: [GuardService]
-      },
-      {
-        path:'dialog',
-        component:DialogOverviewExample,
-        canActivate: [GuardService]
-
-      },
-      {
         path:'header',
         component:HeaderComponent,
-        canActivate: [GuardService]
+      },
+      {
+        path:'money_manager',
+        component:MoneyManagerComponent,
+        // canActivate: [GuardService]
       }
     ]),
-    
-
-    
     MatInputModule,
     MatButtonModule,
-
-
     HttpModule,
-    
   ],
-
-  entryComponents: [DialogOverviewExampleDialog],
   declarations: [
-    AppComponent, LoginComponent,  FormComponent,DialogOverviewExampleDialog,HeaderComponent
+    AppComponent, LoginComponent,HeaderComponent, MoneyManagerComponent
   ],
-  providers:[RestApiService,GuardService,CookieService,DialogOverviewExample],
+  providers:[RestApiService,GuardService,CookieService],
   bootstrap: [AppComponent ]
 })
 export class AppModule { }

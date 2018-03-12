@@ -3,21 +3,13 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { RestApiService } from './rest-api.service';
-
 @Injectable()
 export class GuardService implements CanActivate 
 {
-  
-  
-
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    
     var path = route.routeConfig.path;
     const nextRoute = ['login','edit','form','dialog','header'];
     let isLogin = this.restApi.doAuthorityManage();
-    console.log(isLogin);
-  
-
     if(nextRoute.indexOf(path) >=0)
     {
       if(!isLogin)

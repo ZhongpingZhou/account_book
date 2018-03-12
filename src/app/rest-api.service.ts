@@ -6,8 +6,8 @@ import { promise } from 'selenium-webdriver';
 import { Token } from './login/token';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
 import { Subject } from 'rxjs/Subject';
-import { ReturnModel } from './form/return-model/return-model';
 import { CookieService } from './cookie.service';
+import { Account } from './money-manager/money-manager.component';
 @Injectable()
 export class RestApiService 
 {
@@ -29,11 +29,11 @@ export class RestApiService
   }
 
   // 将form中的数据patch到服务端
-  saveFormModel(returnModel:ReturnModel)
+  saveAccount(account:Account)
   {
     const url = this.host+'orgs/1/street_light_monitors/CL201801170000/config/';
     const header = this.getHeaders(true);
-    this.http.patch(url,JSON.stringify(returnModel),{headers:header}).toPromise().then(res => console.log(res))
+    this.http.patch(url,JSON.stringify(account),{headers:header}).toPromise().then(res => console.log(res))
     .catch(this.handleError);
 
   }
@@ -52,9 +52,7 @@ export class RestApiService
   {
     if(this.cookieService.check("Token"))
     {
-     
-      return true;
-
+       return true;
     }
     else
     {
@@ -68,24 +66,8 @@ export class RestApiService
   {
     const header = this.getHeaders();
     const url = this.host+'token-auth/';
-    
     return  this.http.post(url,JSON.stringify(user),{headers:header}).toPromise().then(res => (res.json()) as Token)
     .catch(this.handleError);
   
   }
-  
-  getAccountInfo()
-  {
-    const header = this.getHeaders(true);
-    const url = this.host+'account/';
-    return this.http.get(url,{headers:header}).toPromise().then(res =>res.json()).catch(this.handleError);
-  }
-
-
-  //跳转到每个项目都共有的登录页面
-  doOAuthLogin (redirect: string) {
-    const url = this.host + '/api-oauth-login/?next=' + redirect;
-    window.location.href = url;
-  }
-
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user';
+
 import { RestApiService } from '../rest-api.service';
 import { Token } from './token';
 import { GuardService } from '../guard-service.service';
@@ -10,14 +10,27 @@ import { CookieService } from '../cookie.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  constructor(private restApi:RestApiService){}
-  ngOnInit(){
-    const current_url = window.location.href;
-    if (current_url.endsWith('/login')) {
-        const length = current_url.length
-        this.restApi.doOAuthLogin(current_url.substr(0, length - 6));
-    }
-   
+export class LoginComponent 
+{
+  constructor(private restApi:RestApiService,private cookieService: CookieService){}
+  user:User=
+  {
+    username:'',
+    password:''
   }
+  do_login()
+  {
+    this.restApi.login(this.user).then(token =>
+    {
+      this.cookieService.set('Token',token.token);
+
+    })
+  }
+}
+
+export class User
+{
+  username:string;
+  password:string;
+
 }
