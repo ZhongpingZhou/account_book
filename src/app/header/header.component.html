@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="tabs">
+      <i class="mdi mdi-home"></i>
+  </div>
+  <div class="user-menu" *ngIf="login_state" [matMenuTriggerFor]="userMenu" >
+      {{username}}
+  </div>
+  <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="onExit()" ><i class="mdi mdi-exit-to-app">退出</i></button>
+  </mat-menu>
+</div>

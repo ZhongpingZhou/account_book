@@ -1,0 +1,14 @@
+<div class="example-container">
+	<form class="example-form">
+		<mat-form-field class="example-full-width">
+			<input matInput placeholder="用户名" value=""  [(ngModel)]="user.username" name="username">
+		</mat-form-field>
+		<mat-form-field class="example-full-width">
+			<input matInput placeholder="密码" value="" type="password" [(ngModel)]="user.password" name="password">
+		</mat-form-field>
+
+		<div class="button-row">
+			<button mat-raised-button color="primary" (click)="login()">登录</button>
+		</div>
+	</form>
+</div>

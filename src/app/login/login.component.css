@@ -1,0 +1,28 @@
+.example-container 
+{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    min-width: 300px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+
+
+.example-button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

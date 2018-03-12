@@ -1,0 +1,37 @@
+.example-container 
+{
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    min-width: 300px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 40px;
+
+}
+  .example-full-width {
+    width: 100%;
+    
+  }
+  .align
+  {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+
+.bexample-container 
+{
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  min-width: 300px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+.selected {
+ background-color:red !important;
+  color: white;
+}
