@@ -12,6 +12,7 @@ import { Account } from './money-manager/money-manager.component';
 export class RestApiService 
 {
   private host = '/proxy/';
+  private host1 ='/angular/';
 
   constructor(private http:Http,private cookieService:CookieService){}
 
@@ -64,10 +65,18 @@ export class RestApiService
   //用户登录login 组件调用,返回一个token;
   login(user:User):Promise<Token>
   {
+    console.log(user);
     const header = this.getHeaders();
-    const url = this.host+'token-auth/';
-    return  this.http.post(url,JSON.stringify(user),{headers:header}).toPromise().then(res => (res.json()) as Token)
+    const url = this.host1+'myblog/14';
+    return  this.http.post(url,JSON.stringify(user),{headers:header}).toPromise().then(/*res => (res.json()) as Token*/)
     .catch(this.handleError);
   
+  }
+
+  getAccoutList()
+  {
+    const header = this.getHeaders();
+    const url = this.host1+'myblog/index.do';
+    this.http.get(url,{headers:header}).toPromise().then(res =>(console.log(res.json()))).catch(this.handleError);;
   }
 }
