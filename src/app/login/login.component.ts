@@ -20,12 +20,12 @@ export class LoginComponent
   }
   do_login()
   {
-    this.restApi.login(this.user).then(/*token =>
+    this.restApi.login(this.user).then(token =>
     {
       this.cookieService.set('Token',token.token);
+      window.location.href="money_manager";
 
-    }*/)
-    //this.restApi.getAccoutList();
+    })
   }
 }
 

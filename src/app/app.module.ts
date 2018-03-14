@@ -7,6 +7,8 @@ import {MatInputModule} from '@angular/material/input';
 import { AppComponent }  from './app.component';
 import { RestApiService } from './rest-api.service';
 import {MatButtonModule} from '@angular/material/button';
+
+import {MatTableModule} from '@angular/material/table';
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -25,6 +27,7 @@ import { MoneyManagerComponent } from './money-manager/money-manager.component';
     MatSelectModule,
     MatDialogModule,
     MatMenuModule,
+    MatTableModule,
     RouterModule.forRoot([
       {
         path: 'login',
@@ -43,7 +46,7 @@ import { MoneyManagerComponent } from './money-manager/money-manager.component';
       {
         path:'money_manager',
         component:MoneyManagerComponent,
-        // canActivate: [GuardService]
+        canActivate: [GuardService]
       }
     ]),
     MatInputModule,

@@ -8,7 +8,7 @@
 	},
 
 	"/angular/*": {
-	"target": "http://localhost:8080/",
+	"target": "http://www.zhouzhongping.cn:8080/",
 	"secure": false,
 	"changeOrigin": true,
 	"logLevel": "debug",

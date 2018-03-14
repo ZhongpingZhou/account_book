@@ -24,19 +24,16 @@ export class RestApiService
     if (isSubmit) 
     {
       header.append('Authorization', 'Token '+this.cookieService.get('Token'));
-    }
-
-    return header;
+    }return header;
   }
 
   // 将form中的数据patch到服务端
   saveAccount(account:Account)
   {
-    const url = this.host+'orgs/1/street_light_monitors/CL201801170000/config/';
-    const header = this.getHeaders(true);
-    this.http.patch(url,JSON.stringify(account),{headers:header}).toPromise().then(res => console.log(res))
+    const url = this.host1+'account/saveaccount';
+    const header = this.getHeaders();
+    this.http.post(url,JSON.stringify(account),{headers:header}).toPromise().then()
     .catch(this.handleError);
-
   }
 
   //错误处理方法
@@ -67,12 +64,11 @@ export class RestApiService
   {
     console.log(user);
     const header = this.getHeaders();
-    const url = this.host1+'myblog/14';
-    return  this.http.post(url,JSON.stringify(user),{headers:header}).toPromise().then(/*res => (res.json()) as Token*/)
+    const url = this.host1+'account/login';
+    return  this.http.post(url,JSON.stringify(user),{headers:header}).toPromise().then(res =>res.json() as Token)
     .catch(this.handleError);
   
   }
-
   getAccoutList()
   {
     const header = this.getHeaders();

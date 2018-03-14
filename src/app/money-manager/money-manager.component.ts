@@ -14,17 +14,19 @@ export class MoneyManagerComponent
   account:Account =
   {
     spend:null,
-    descripion:''
+    description:''
   }
   do_submit()
   {
-    this.restApi.saveAccount(this.account)
+
+    this.restApi.saveAccount(this.account);
+    window.location.href="https://segmentfault.com/";
   }
 }
 export class Account
 {
   spend:number;
-  descripion:string;
+  description:string;
 
 }
 

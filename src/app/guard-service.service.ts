@@ -8,7 +8,7 @@ export class GuardService implements CanActivate
 {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     var path = route.routeConfig.path;
-    const nextRoute = ['login','edit','form','dialog','header'];
+    const nextRoute = ['login','edit','form','dialog','header','money_manager'];
     let isLogin = this.restApi.doAuthorityManage();
     if(nextRoute.indexOf(path) >=0)
     {
