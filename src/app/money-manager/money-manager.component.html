@@ -2,13 +2,13 @@
   <p>account book</p>
   <form class="example-form">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="spend" [(ngModel)]="account.spend" name="spend" type="number" required> 
+      <input matInput placeholder="spend" [(ngModel)]="account.spend" name="spend"   type="number" required> 
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <input matInput placeholder="description" [(ngModel)]="account.description" name="description"  required>
     </mat-form-field>
     <div class="button-row">
-      <button mat-raised-button color="primary" (click)="do_submit()">提交</button>
+      <button mat-raised-button style="background:rgb(0, 183, 255)" (click)="do_submit()">提交</button>
     </div>
   </form>
 </section>

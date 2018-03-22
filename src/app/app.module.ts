@@ -7,7 +7,6 @@ import {MatInputModule} from '@angular/material/input';
 import { AppComponent }  from './app.component';
 import { RestApiService } from './rest-api.service';
 import {MatButtonModule} from '@angular/material/button';
-
 import {MatTableModule} from '@angular/material/table';
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
@@ -18,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
 import { GuardService } from './guard-service.service';
 import { CookieService } from './cookie.service';
 import { MoneyManagerComponent } from './money-manager/money-manager.component';
+import { DialogService ,DialogOverviewExampleDialog} from './dialog/dialog.component';
+import { ListComponent } from './list/list.component';
 @NgModule
 ({
   imports: [
@@ -33,7 +34,7 @@ import { MoneyManagerComponent } from './money-manager/money-manager.component';
         path: 'login',
         component: LoginComponent 
       },
-      
+
       {
         path: '',
         redirectTo: '/login',
@@ -53,10 +54,11 @@ import { MoneyManagerComponent } from './money-manager/money-manager.component';
     MatButtonModule,
     HttpModule,
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   declarations: [
-    AppComponent, LoginComponent,HeaderComponent, MoneyManagerComponent
+    AppComponent, LoginComponent,HeaderComponent, MoneyManagerComponent, DialogOverviewExampleDialog, ListComponent
   ],
-  providers:[RestApiService,GuardService,CookieService],
+  providers:[RestApiService,GuardService,CookieService,DialogService],
   bootstrap: [AppComponent ]
 })
 export class AppModule { }

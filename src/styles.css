@@ -1,3 +1,7 @@
 
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /* Master Styles */
+body
+{
+    background-image: url(t011c75c6d161eaa7a0.jpg);
+}

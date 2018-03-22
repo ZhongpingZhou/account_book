@@ -12,7 +12,7 @@ import { Account } from './money-manager/money-manager.component';
 export class RestApiService 
 {
   private host = '/proxy/';
-  private host1 ='/angular/';
+  private host1 ='/apis/';
 
   constructor(private http:Http,private cookieService:CookieService){}
 
